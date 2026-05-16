@@ -1,0 +1,1323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groomers Gents Salon — Al Nahda, Sharjah</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --black: #080808;
+        --yellow: #f5c800;
+        --ydim: rgba(245, 200, 0, 0.08);
+        --yglow: rgba(245, 200, 0, 0.3);
+        --white: #ffffff;
+        --off: #e8e0cc;
+        --g1: #111111;
+        --g2: #191919;
+        --sub: #888888;
+        --bdr: rgba(245, 200, 0, 0.15);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--black);
+        color: var(--white);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--black);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--yellow);
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        height: 60px;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(8, 8, 8, 0.97);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--bdr);
+      }
+      .nlogo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nyellow {
+        width: 32px;
+        height: 32px;
+        background: var(--yellow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .nyellow svg {
+        width: 18px;
+        height: 18px;
+      }
+      .nname {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 17px;
+        letter-spacing: 3px;
+        color: var(--white);
+        white-space: nowrap;
+      }
+      .nname em {
+        color: var(--yellow);
+        font-style: normal;
+      }
+      .nlinks {
+        display: flex;
+        gap: 28px;
+      }
+      .nlinks a {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--sub);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nlinks a:hover {
+        color: var(--yellow);
+      }
+      .nbtn {
+        background: var(--yellow);
+        color: var(--black);
+        padding: 9px 20px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px;
+        white-space: nowrap;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nbtn:hover {
+        background: #ffd700;
+        box-shadow: 0 4px 20px var(--yglow);
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 24px 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hbg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 70% 60% at 50% 30%,
+            rgba(245, 200, 0, 0.07) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 50% 50% at 80% 80%,
+            rgba(245, 200, 0, 0.03) 0%,
+            transparent 50%
+          );
+      }
+      .hlines {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(245, 200, 0, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 200, 0, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(
+          ellipse 90% 90% at 50% 40%,
+          black 0%,
+          transparent 100%
+        );
+      }
+      .hbadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--ydim);
+        border: 1px solid rgba(245, 200, 0, 0.3);
+        padding: 8px 18px;
+        border-radius: 40px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 32px;
+        animation: fadeUp 0.6s ease both;
+        position: relative;
+        z-index: 1;
+      }
+      .hdot {
+        width: 6px;
+        height: 6px;
+        background: var(--yellow);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(1.4);
+        }
+      }
+      .hlocation {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--sub);
+        margin-bottom: 16px;
+        animation: fadeUp 0.6s 0.05s ease both;
+        position: relative;
+        z-index: 1;
+      }
+      .hh1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(76px, 18vw, 180px);
+        line-height: 0.85;
+        letter-spacing: 4px;
+        color: var(--white);
+        animation: fadeUp 0.6s 0.1s ease both;
+        position: relative;
+        z-index: 1;
+      }
+      .hh1 .hy {
+        color: var(--yellow);
+      }
+      .hsub {
+        font-size: clamp(13px, 3vw, 16px);
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--sub);
+        margin-top: 20px;
+        animation: fadeUp 0.6s 0.18s ease both;
+        position: relative;
+        z-index: 1;
+      }
+      .hrating {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 36px;
+        padding: 14px 28px;
+        background: var(--g1);
+        border: 1px solid var(--bdr);
+        border-radius: 4px;
+        animation: fadeUp 0.6s 0.24s ease both;
+        position: relative;
+        z-index: 1;
+      }
+      .hrstars {
+        color: var(--yellow);
+        font-size: 17px;
+        letter-spacing: 3px;
+      }
+      .hrsep {
+        width: 1px;
+        height: 26px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .hrtxt {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--sub);
+      }
+      .hrtxt strong {
+        color: var(--white);
+        font-weight: 700;
+      }
+      .hbtns {
+        display: flex;
+        gap: 12px;
+        margin-top: 44px;
+        flex-wrap: wrap;
+        justify-content: center;
+        animation: fadeUp 0.6s 0.3s ease both;
+        position: relative;
+        z-index: 1;
+      }
+      .btnY {
+        background: var(--yellow);
+        color: var(--black);
+        padding: 16px 32px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.25s;
+      }
+      .btnY:hover {
+        background: #ffd700;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 32px var(--yglow);
+      }
+      .btnO {
+        border: 1.5px solid rgba(245, 200, 0, 0.4);
+        color: var(--yellow);
+        padding: 16px 32px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.25s;
+      }
+      .btnO:hover {
+        background: var(--ydim);
+        border-color: var(--yellow);
+      }
+
+      /* STATS */
+      .stats {
+        background: var(--g1);
+        border-top: 1px solid var(--bdr);
+        border-bottom: 1px solid var(--bdr);
+        padding: 40px 24px;
+      }
+      .stats-in {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .stat {
+        text-align: center;
+        padding: 8px 16px;
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .stat:last-child {
+        border-right: none;
+      }
+      .stat-n {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(40px, 7vw, 60px);
+        line-height: 1;
+        color: var(--yellow);
+      }
+      .stat-l {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--sub);
+        margin-top: 6px;
+      }
+
+      /* SECTION */
+      .section {
+        padding: 90px 24px;
+      }
+      .section-in {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .sec-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sec-label::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--yellow);
+      }
+      .sec-h {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(48px, 8vw, 88px);
+        line-height: 1;
+        letter-spacing: 1px;
+      }
+      .sec-h .hy {
+        color: var(--yellow);
+      }
+      .sec-p {
+        font-size: 16px;
+        color: var(--sub);
+        margin-top: 12px;
+        line-height: 1.7;
+        max-width: 520px;
+      }
+
+      /* SERVICES GRID */
+      .svcs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 48px;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      .svc {
+        background: var(--black);
+        padding: 32px 24px;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.25s;
+      }
+      .svc-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--yellow);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
+      .svc:hover {
+        background: var(--g1);
+      }
+      .svc:hover .svc-bar {
+        transform: scaleX(1);
+      }
+      .svc-ico {
+        font-size: 28px;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .svc-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 22px;
+        letter-spacing: 1px;
+        color: var(--white);
+      }
+      .svc-desc {
+        font-size: 13px;
+        color: var(--sub);
+        margin-top: 8px;
+        line-height: 1.65;
+      }
+
+      /* WHY */
+      .why {
+        background: var(--g1);
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+        margin-top: 56px;
+      }
+      .why-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .why-item {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+      }
+      .why-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 48px;
+        line-height: 1;
+        color: rgba(245, 200, 0, 0.15);
+        flex-shrink: 0;
+        min-width: 44px;
+      }
+      .why-title {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 6px;
+      }
+      .why-desc {
+        font-size: 14px;
+        color: var(--sub);
+        line-height: 1.7;
+      }
+      .why-box {
+        background: var(--black);
+        border: 1px solid var(--bdr);
+        border-radius: 4px;
+        padding: 52px 36px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .why-box-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 50% 40%,
+          rgba(245, 200, 0, 0.06) 0%,
+          transparent 65%
+        );
+      }
+      .why-big {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(88px, 14vw, 140px);
+        line-height: 1;
+        color: var(--yellow);
+        position: relative;
+        z-index: 1;
+      }
+      .why-big-lbl {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--sub);
+        margin-top: 8px;
+        position: relative;
+        z-index: 1;
+      }
+      .why-badge {
+        width: 68px;
+        height: 68px;
+        background: var(--yellow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 24px auto 0;
+        position: relative;
+        z-index: 1;
+      }
+      .why-badge svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      /* REVIEWS */
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 48px;
+      }
+      .rev {
+        background: var(--g1);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        padding: 26px;
+        transition: all 0.25s;
+      }
+      .rev:hover {
+        border-color: rgba(245, 200, 0, 0.3);
+        transform: translateY(-4px);
+      }
+      .rev-stars {
+        color: var(--yellow);
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+      .rev-text {
+        font-size: 14px;
+        line-height: 1.85;
+        color: var(--off);
+        font-style: italic;
+        margin-bottom: 18px;
+      }
+      .rev-name {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--yellow);
+      }
+      .rev-sub {
+        font-size: 11px;
+        color: var(--sub);
+        margin-top: 3px;
+      }
+
+      /* BRANCHES */
+      .branches-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 48px;
+      }
+      .br {
+        background: var(--g1);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        padding: 28px;
+        transition: all 0.25s;
+      }
+      .br:hover {
+        border-color: rgba(245, 200, 0, 0.3);
+      }
+      .br-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 48px;
+        line-height: 1;
+        color: rgba(245, 200, 0, 0.12);
+        margin-bottom: 10px;
+      }
+      .br-name {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 8px;
+      }
+      .br-addr {
+        font-size: 13px;
+        color: var(--sub);
+        line-height: 1.7;
+      }
+      .br-phone {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* CTA */
+      .cta {
+        padding: 110px 24px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 80% at 50% 50%,
+          rgba(245, 200, 0, 0.07) 0%,
+          transparent 70%
+        );
+      }
+      .cta-h {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(56px, 12vw, 120px);
+        line-height: 1;
+        letter-spacing: 2px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-h .hy {
+        color: var(--yellow);
+      }
+      .cta-sub {
+        font-size: 17px;
+        color: var(--sub);
+        margin-top: 16px;
+        position: relative;
+        z-index: 1;
+        letter-spacing: 0.5px;
+        line-height: 1.6;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 12px;
+        margin-top: 44px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-note {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--sub);
+        margin-top: 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--g1);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 32px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .flogo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 15px;
+        letter-spacing: 3px;
+        color: var(--sub);
+      }
+      .flogo em {
+        color: var(--yellow);
+        font-style: normal;
+      }
+      .flinks {
+        display: flex;
+        gap: 20px;
+      }
+      .flinks a {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--sub);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .flinks a:hover {
+        color: var(--yellow);
+      }
+      .fcopy {
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* ANIMATIONS */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.on {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        /* Nav */
+        nav {
+          padding: 0 16px;
+        }
+        .nlinks {
+          display: none;
+        }
+        .nbtn {
+          padding: 8px 14px;
+          font-size: 11px;
+          letter-spacing: 1px;
+        }
+
+        /* Hero */
+        .hero {
+          padding: 76px 20px 52px;
+        }
+        .hh1 {
+          font-size: clamp(68px, 20vw, 110px);
+        }
+        .hsub {
+          font-size: 12px;
+          letter-spacing: 2px;
+        }
+        .hrating {
+          padding: 12px 20px;
+          gap: 10px;
+        }
+        .hrtxt {
+          font-size: 13px;
+        }
+        .hbtns {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        .btnY,
+        .btnO {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+
+        /* Stats */
+        .stats {
+          padding: 28px 16px;
+        }
+        .stats-in {
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .stat {
+          border-right: none;
+          padding: 12px;
+        }
+        .stat-n {
+          font-size: 42px;
+        }
+
+        /* Sections */
+        .section {
+          padding: 64px 20px;
+        }
+        .sec-h {
+          font-size: clamp(44px, 12vw, 72px);
+        }
+        .sec-p {
+          font-size: 15px;
+        }
+
+        /* Services */
+        .svcs {
+          grid-template-columns: 1fr 1fr;
+        }
+        .svc {
+          padding: 24px 18px;
+        }
+        .svc-name {
+          font-size: 19px;
+        }
+        .svc-desc {
+          font-size: 12px;
+        }
+
+        /* Why */
+        .why-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .why-box {
+          padding: 40px 24px;
+        }
+        .why-num {
+          font-size: 40px;
+        }
+        .why-title {
+          font-size: 14px;
+        }
+        .why-desc {
+          font-size: 13px;
+        }
+
+        /* Reviews */
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+        .rev-text {
+          font-size: 14px;
+        }
+
+        /* Branches */
+        .branches-grid {
+          grid-template-columns: 1fr;
+        }
+        .br-addr {
+          font-size: 13px;
+        }
+
+        /* CTA */
+        .cta {
+          padding: 80px 20px;
+        }
+        .cta-sub {
+          font-size: 15px;
+        }
+        .cta-btns {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        .cta-btns .btnY,
+        .cta-btns .btnO {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 28px 20px;
+        }
+        .flinks {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .svcs {
+          grid-template-columns: 1fr;
+        }
+        .hh1 {
+          font-size: clamp(58px, 18vw, 90px);
+        }
+        .stat-n {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nlogo">
+        <div class="nyellow">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <path
+              d="M12 3c-2.5 0-4 2-4 4.5 0 1.8 1 3.2 2.5 4L9 20h6l-1.5-8.5C15 10.2 16 8.8 16 7c0-2.5-1.5-4-4-4z"
+            />
+          </svg>
+        </div>
+        <span class="nname"><em>GROOMERS</em> GENTS SALON</span>
+      </div>
+      <div class="nlinks">
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#branches">Locations</a>
+      </div>
+      <a
+        class="nbtn"
+        href="https://wa.me/971555740137?text=Hi%2C%20I%20want%20to%20book%20an%20appointment."
+        target="_blank"
+      >
+        Book Now
+      </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hbg"></div>
+      <div class="hlines"></div>
+      <div class="hbadge">
+        <div class="hdot"></div>
+        Sharjah's #1 Gents Salon
+      </div>
+      <div class="hlocation">Al Nahda · Sharjah · UAE</div>
+      <h1 class="hh1">KEEP IT<br /><span class="hy">HANDSOME</span></h1>
+      <p class="hsub">Precision Cuts · Expert Beard Trims · Premium Grooming</p>
+      <div class="hrating">
+        <div class="hrstars">★★★★★</div>
+        <div class="hrsep"></div>
+        <div class="hrtxt">
+          <strong>4.9</strong> Stars &nbsp;·&nbsp;
+          <strong>1,511+</strong> Reviews
+        </div>
+      </div>
+      <div class="hbtns">
+        <a
+          class="btnY"
+          href="https://wa.me/971555740137?text=Hi%2C%20I%20want%20to%20book%20at%20Groomers."
+          target="_blank"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.533 5.858L.073 23.927l6.224-1.435A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.802 9.802 0 01-5.001-1.368l-.36-.214-3.7.853.882-3.596-.235-.371A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"
+            />
+          </svg>
+          Book on WhatsApp
+        </a>
+        <a class="btnO" href="tel:+971555740137">Call Us</a>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats reveal">
+      <div class="stats-in">
+        <div class="stat">
+          <div class="stat-n">4.9★</div>
+          <div class="stat-l">Google Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">1,511</div>
+          <div class="stat-l">Reviews</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">4</div>
+          <div class="stat-l">Branches</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">8AM</div>
+          <div class="stat-l">Opens Daily</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="section-in">
+        <div class="sec-label reveal">What We Offer</div>
+        <h2 class="sec-h reveal">OUR <span class="hy">SERVICES</span></h2>
+        <p class="sec-p reveal">
+          Every service delivered with precision and expert care.
+        </p>
+        <div class="svcs reveal">
+          <div class="svc">
+            <span class="svc-ico">✂️</span>
+            <div class="svc-name">Haircut</div>
+            <div class="svc-desc">
+              Precision fades, tapers and classic cuts — styled exactly how you
+              want.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">🧔</span>
+            <div class="svc-name">Beard Trim</div>
+            <div class="svc-desc">
+              Shape, define and perfect your beard. Clean sharp lines every
+              time.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">🪒</span>
+            <div class="svc-name">Clean Shave</div>
+            <div class="svc-desc">
+              Hot towel prep, premium blades, smooth finish. The classic
+              experience.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">💆</span>
+            <div class="svc-name">Hair Spa</div>
+            <div class="svc-desc">
+              Deep conditioning and scalp treatment for healthy, strong hair.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">🧴</span>
+            <div class="svc-name">Keratin</div>
+            <div class="svc-desc">
+              Smooth, frizz-free hair that lasts for months. Professional grade
+              only.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">🎨</span>
+            <div class="svc-name">Hair Color</div>
+            <div class="svc-desc">
+              Natural tones or bold statements. Expert color application every
+              visit.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">✨</span>
+            <div class="svc-name">Face D-Tan</div>
+            <div class="svc-desc">
+              Brighten your skin and remove tan with our premium facial
+              treatment.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+          <div class="svc">
+            <span class="svc-ico">💅</span>
+            <div class="svc-name">Mani & Pedi</div>
+            <div class="svc-desc">
+              Full hand and foot care. Clean, groomed, and completely refreshed.
+            </div>
+            <div class="svc-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section why">
+      <div class="section-in">
+        <div class="sec-label reveal">Why Choose Us</div>
+        <h2 class="sec-h reveal">WHY <span class="hy">GROOMERS</span></h2>
+        <div class="why-grid">
+          <div class="why-list">
+            <div class="why-item reveal">
+              <div class="why-num">01</div>
+              <div>
+                <div class="why-title">Sharjah's Most Trusted</div>
+                <div class="why-desc">
+                  Over 1,511 verified Google reviews and a 4.9-star rating
+                  across all branches. That is consistent excellence, delivered
+                  every single day.
+                </div>
+              </div>
+            </div>
+            <div class="why-item reveal">
+              <div class="why-num">02</div>
+              <div>
+                <div class="why-title">Expert Barbers</div>
+                <div class="why-desc">
+                  Our specialists — Parvees, Junu, Navas, Suhail — have served
+                  thousands of clients. They know exactly what your hair needs.
+                </div>
+              </div>
+            </div>
+            <div class="why-item reveal">
+              <div class="why-num">03</div>
+              <div>
+                <div class="why-title">Premium Products Only</div>
+                <div class="why-desc">
+                  Professional-grade products for every service. No shortcuts.
+                  Your hair and skin deserve only the best.
+                </div>
+              </div>
+            </div>
+            <div class="why-item reveal">
+              <div class="why-num">04</div>
+              <div>
+                <div class="why-title">Open 7 Days a Week</div>
+                <div class="why-desc">
+                  Open from 8AM every day. Walk in or book on WhatsApp. We work
+                  around your schedule, not the other way around.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="why-box reveal">
+            <div class="why-box-glow"></div>
+            <div class="why-big">4.9</div>
+            <div class="why-big-lbl">Average Google Rating</div>
+            <div class="why-badge">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M12 3c-2.5 0-4 2-4 4.5 0 1.8 1 3.2 2.5 4L9 20h6l-1.5-8.5C15 10.2 16 8.8 16 7c0-2.5-1.5-4-4-4z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+      <div class="section-in">
+        <div class="sec-label reveal">What Clients Say</div>
+        <h2 class="sec-h reveal">REAL <span class="hy">REVIEWS</span></h2>
+        <div class="reviews-grid">
+          <div class="rev reveal">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text">
+              "Just had one of the best grooming experiences ever! A huge thank
+              you to Junu for the amazing work. Haircut, beard set, hair spa,
+              and face D-tan — everything done perfectly."
+            </div>
+            <div class="rev-name">Google Review</div>
+            <div class="rev-sub">Verified Customer</div>
+          </div>
+          <div class="rev reveal">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text">
+              "If you're looking for a precise cut, go see Mr. Parvees at
+              Groomers. I went in for an Eid refresh — hair and beard — and the
+              results are amazing. He has a great eye for style."
+            </div>
+            <div class="rev-name">Google Review</div>
+            <div class="rev-sub">Verified Customer</div>
+          </div>
+          <div class="rev reveal">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text">
+              "Absolutely amazing service. Been their customer for 2 years and
+              it's always an amazing experience. Especially Sohail is an awesome
+              guy. Highly recommend to everyone."
+            </div>
+            <div class="rev-name">Google Review</div>
+            <div class="rev-sub">2 Year Regular Customer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANCHES -->
+    <section class="section" id="branches" style="background: var(--g1)">
+      <div class="section-in">
+        <div class="sec-label reveal">Find Us</div>
+        <h2 class="sec-h reveal">OUR <span class="hy">LOCATIONS</span></h2>
+        <p class="sec-p reveal">
+          4 branches across Sharjah. Always close to you.
+        </p>
+        <div class="branches-grid">
+          <div class="br reveal">
+            <div class="br-num">01</div>
+            <div class="br-name">Main Branch</div>
+            <div class="br-addr">
+              Next to Baqer Mohebi Supermarket, Hay Al Nahda, Sharjah
+            </div>
+            <div class="br-phone">📞 +971 55 574 0137</div>
+          </div>
+          <div class="br reveal">
+            <div class="br-num">02</div>
+            <div class="br-name">Branch 2</div>
+            <div class="br-addr">
+              Delta Tower, Opposite City Market, Hay Al Nahda, Sharjah
+            </div>
+            <div class="br-phone">📞 +971 52 178 6999</div>
+          </div>
+          <div class="br reveal">
+            <div class="br-num">03</div>
+            <div class="br-name">Branch 3</div>
+            <div class="br-addr">
+              Istiqlal Street, Near Mega Mall, Al Qasimiah, Sharjah
+            </div>
+            <div class="br-phone">📞 +971 58 945 6450</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta-glow"></div>
+      <h2 class="cta-h reveal">
+        READY TO LOOK<br /><span class="hy">YOUR BEST?</span>
+      </h2>
+      <p class="cta-sub reveal">
+        Walk in or book your slot on WhatsApp.<br />Same-day appointments
+        available.
+      </p>
+      <div class="cta-btns reveal">
+        <a
+          class="btnY"
+          href="https://wa.me/971555740137?text=Hi%2C%20I%20want%20to%20book%20at%20Groomers%20Gents%20Salon."
+          target="_blank"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.533 5.858L.073 23.927l6.224-1.435A11.935 11.935 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.802 9.802 0 01-5.001-1.368l-.36-.214-3.7.853.882-3.596-.235-.371A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"
+            />
+          </svg>
+          Book on WhatsApp
+        </a>
+        <a class="btnO" href="tel:+971555740137">Call Now</a>
+      </div>
+      <div class="cta-note reveal">
+        Open 8AM – 11:30PM · Every Day · Walk-ins Welcome
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="flogo"><em>GROOMERS</em> GENTS SALON</div>
+      <div class="flinks">
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#branches">Locations</a>
+        <a href="https://www.instagram.com/groomersstudio/" target="_blank"
+          >Instagram</a
+        >
+      </div>
+      <div class="fcopy">© 2025 Groomers · Sharjah, UAE</div>
+    </footer>
+
+    <script>
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("on");
+          });
+        },
+        { threshold: 0.08 },
+      );
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        obs.observe(el);
+      });
+      // Stagger items inside grids
+      document
+        .querySelectorAll(
+          ".svcs,.reviews-grid,.branches-grid,.why-list,.stats-in",
+        )
+        .forEach((grid) => {
+          [...grid.children].forEach((child, i) => {
+            child.style.transitionDelay = i * 0.07 + "s";
+          });
+        });
+    </script>
+  </body>
+</html>
